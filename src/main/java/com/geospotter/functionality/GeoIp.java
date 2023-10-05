@@ -1,7 +1,6 @@
 package com.geospotter.functionality;
 
 import com.maxmind.geoip2.DatabaseReader;
-import com.maxmind.geoip2.exception.AddressNotFoundException;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
 import com.maxmind.geoip2.record.City;
@@ -46,8 +45,9 @@ public class GeoIp {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (GeoIp2Exception geoip) {
-            txtArea.setText("| ERROR | IP Adress not found.");
+            txtArea.setText("ERROR: IP Adress not found.");
         }
+
     }
 
     public boolean checkIp(String ip) {
