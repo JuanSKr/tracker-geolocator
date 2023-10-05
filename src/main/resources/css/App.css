@@ -1,3 +1,21 @@
+#button-enter {
+    -fx-background-color: white;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 58px;
+    -fx-layout-x: 383px;
+    -fx-layout-y: 92px;
+    -fx-background-radius: 20 20 20 20;
+    -fx-font: bold 18px Spendthrift;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#button-enter:hover {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
 #button-search {
     -fx-background-color: black;
     -fx-pref-width: 150px;
@@ -18,7 +36,7 @@
 
 #properties-button {
     -fx-background-color: black;
-    -fx-pref-width: 120px;
+    -fx-pref-width: 80px;
     -fx-pref-height: 20px;
     -fx-layout-x: 383px;
     -fx-layout-y: 92px;
@@ -29,6 +47,24 @@
 }
 
 #properties-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#back-button {
+    -fx-background-color: black;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+    -fx-layout-x: 383px;
+    -fx-layout-y: 92px;
+    -fx-background-radius: 20 20 20 20;
+    -fx-font: bold 12px Spendthrift;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#back-button:hover {
     -fx-background-color: white;
     -fx-text-fill: black;
     -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);

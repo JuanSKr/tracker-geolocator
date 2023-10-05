@@ -11,6 +11,8 @@ import javafx.scene.control.TextArea;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.URL;
+import java.net.UnknownHostException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,7 +35,7 @@ public class GeoIp {
             double longitude = response.getLocation().getLongitude();
 
             txtArea.setText(
-                            "---------------------------" + "\n" +
+                    "---------------------------" + "\n" +
                             "IP: " + ip + "\n" +
                             "Country: " + countryName + "\n" +
                             "City: " + cityName + "\n" +
@@ -59,5 +61,17 @@ public class GeoIp {
 
     }
 
-
+    public void getIp(String domain, TextArea txtArea) {
+        try {
+            URL url = new URL("http://" + domain);
+            String ip = InetAddress.getByName(url.getHost()).getHostAddress();
+            txtArea.setText(ip);
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
+
+

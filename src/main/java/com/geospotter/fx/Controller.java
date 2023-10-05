@@ -1,13 +1,17 @@
 package com.geospotter.fx;
 
+import com.geospotter.functionality.Delay;
 import com.geospotter.functionality.GeoIp;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
+
+import java.io.IOException;
 
 public class Controller {
 
@@ -27,6 +31,20 @@ public class Controller {
     private Button copyBtn;
 
     @FXML
+    private Button getIpBtn;
+
+    @FXML
+    private Button ipTrackerBtn;
+
+    @FXML
+    private Button backBtn;
+
+    @FXML
+    private ImageView logo;
+
+    @FXML
+    private ImageView copiedImg;
+
     public void searchIp(ActionEvent event) {
         GeoIp geoip = new GeoIp();
 
@@ -35,6 +53,12 @@ public class Controller {
         } else {
             geoip.ipAdress(txtField.getText(), txtArea);
         }
+    }
+
+    public void getIp(ActionEvent event) {
+        GeoIp geoip = new GeoIp();
+
+        geoip.getIp(txtField.getText(), txtArea);
     }
 
     public void cleanArea() {
@@ -48,12 +72,48 @@ public class Controller {
 
         GeoIp geoip = new GeoIp();
 
-        if (geoip.checkIp(txtField.getText())) {
-            content.putString(txtArea.getText());
-            clipboard.setContent(content);
+        content.putString(txtArea.getText());
+        clipboard.setContent(content);
+        copied();
+
+    }
+
+    public void getterButton() {
+        App app = new App();
+
+        try {
+            app.goGetIp("getter.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+    }
 
+    public void trackerButton() {
+        App app = new App();
 
+        try {
+            app.goTrackIp("tracker.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void backButton() {
+        App app = new App();
+
+        try {
+            app.goBack("enter.fxml");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void copied() {
+        Delay delay = new Delay();
+
+        copiedImg.setVisible(true);
+
+        delay.copiedDelay(3000, copiedImg);
     }
 
 }
