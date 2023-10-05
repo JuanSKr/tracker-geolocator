@@ -1,0 +1,57 @@
+#button-search {
+    -fx-background-color: black;
+    -fx-pref-width: 150px;
+    -fx-pref-height: 58px;
+    -fx-layout-x: 383px;
+    -fx-layout-y: 92px;
+    -fx-background-radius: 20 20 20 20;
+    -fx-font: bold 18px Spendthrift;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#button-search:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#properties-button {
+    -fx-background-color: black;
+    -fx-pref-width: 120px;
+    -fx-pref-height: 20px;
+    -fx-layout-x: 383px;
+    -fx-layout-y: 92px;
+    -fx-background-radius: 20 20 20 20;
+    -fx-font: bold 12px Spendthrift;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#properties-button:hover {
+    -fx-background-color: white;
+    -fx-text-fill: black;
+    -fx-effect: dropshadow(gaussian, rgba(255,255,255,0.8), 10, 0, 2, 2);
+}
+
+#txtArea {
+-fx-control-inner-background: black;
+-fx-x: 137;
+-fx-y: 255;
+-fx-pref-width: 560px;
+-fx-pref-height: 280px;
+-fx-font: bold 14.5px arial;
+-fx-text-fill: white;
+-fx-effect: dropshadow(gaussian, rgba(255,255,255,0.6), 0, 5, 2, 3);
+}
+
+#txtField {
+-fx-background-color: black;
+-fx-x: 137;
+-fx-y: 255;
+-fx-pref-width: 220px;
+-fx-pref-height: 44px;
+-fx-font: bold 14.5px arial;
+-fx-text-fill: white;
+-fx-effect: dropshadow(gaussian, rgba(255,255,255,0.6), 0, 5, 2, 3);
+}

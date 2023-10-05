@@ -1,22 +1,23 @@
 package com.geospotter.functionality;
 
 import com.maxmind.geoip2.DatabaseReader;
+import com.maxmind.geoip2.exception.AddressNotFoundException;
 import com.maxmind.geoip2.exception.GeoIp2Exception;
 import com.maxmind.geoip2.model.CityResponse;
 import com.maxmind.geoip2.record.City;
 import com.maxmind.geoip2.record.Country;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class GeoIp {
 
-    public void ipAdress(TextField txtField) {
+    public void ipAdress(String ip, TextArea txtArea) {
         try {
-            String ip = txtField.getText();
             File db = new File("db/GeoLite2-City.mmdb");
             DatabaseReader dbReader = new DatabaseReader.Builder(db).build();
 
@@ -31,15 +32,31 @@ public class GeoIp {
             double latitude = response.getLocation().getLatitude();
             double longitude = response.getLocation().getLongitude();
 
-            System.out.println("IP: "+ip);
-            System.out.println("Country: "+countryName);
-            System.out.println("City: "+cityName);
-            System.out.println("Latitude: "+latitude);
-            System.out.println("Longitude: "+longitude);
+            txtArea.setText(
+                            "---------------------------" + "\n" +
+                            "IP: " + ip + "\n" +
+                            "Country: " + countryName + "\n" +
+                            "City: " + cityName + "\n" +
+                            "Latitude: " + latitude + "\n" +
+                            "Longitude: " + longitude + "\n" +
+                            "---------------------------");
 
-        } catch (IOException | GeoIp2Exception e) {
+        } catch (IOException e) {
             e.printStackTrace();
+        } catch (GeoIp2Exception geoip) {
+            txtArea.setText("| ERROR | IP Adress not found.");
         }
+    }
+
+    public boolean checkIp(String ip) {
+        String ipv4Pattern = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
+
+        Pattern pattern = Pattern.compile(ipv4Pattern);
+
+        Matcher matcher = pattern.matcher(ip);
+
+        return matcher.matches();
+
     }
 
 
