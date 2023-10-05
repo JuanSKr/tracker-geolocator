@@ -1,4 +1,4 @@
-package com.geospotter.geospotter;
+package com.geospotter.fx;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
