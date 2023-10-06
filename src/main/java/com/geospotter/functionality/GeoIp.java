@@ -42,12 +42,9 @@ public class GeoIp {
                             "Longitude: " + longitude + "\n" +
                             "---------------------------");
 
-        } catch (IOException e) {
+        } catch (IOException | GeoIp2Exception e) {
             e.printStackTrace();
-        } catch (GeoIp2Exception geoip) {
-            txtArea.setText("ERROR: IP Adress not found.");
         }
-
     }
 
     public boolean checkIp(String ip) {
