@@ -18,6 +18,13 @@ import java.util.regex.Pattern;
 
 public class GeoIp {
 
+    /**
+     * Retrieves geolocation information for a given IP address and displays it in a TextArea.
+     *
+     * @param ip      The IP address for which geolocation information is to be retrieved.
+     * @param txtArea The TextArea where the geolocation information will be displayed.
+     */
+
     public void ipAdress(String ip, TextArea txtArea) {
         try {
             File db = new File("db/GeoLite2-City.mmdb");
@@ -52,6 +59,13 @@ public class GeoIp {
         }
     }
 
+    /**
+     * Checks if the provided string represents a valid IPv4 address.
+     *
+     * @param ip The string to be checked for a valid IPv4 address.
+     * @return True if the string is a valid IPv4 address; otherwise, false.
+     */
+
     public boolean checkIp(String ip) {
         String ipv4Pattern = "^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$";
 
@@ -62,6 +76,13 @@ public class GeoIp {
         return matcher.matches();
 
     }
+
+    /**
+     * Retrieves the IP address associated with a given domain and displays it in a TextArea.
+     *
+     * @param domain  The domain for which the IP address is to be retrieved.
+     * @param txtArea The TextArea where the IP address will be displayed.
+     */
 
     public void getIp(String domain, TextArea txtArea) {
         try {
