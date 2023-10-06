@@ -22,28 +22,10 @@ public class Controller {
     private TextArea txtArea;
 
     @FXML
-    private Button searchBtn;
+    private Button searchBtn, cleanBtn, copyBtn, getIpBtn, ipTrackerBtn, backBtn;
 
     @FXML
-    private Button cleanBtn;
-
-    @FXML
-    private Button copyBtn;
-
-    @FXML
-    private Button getIpBtn;
-
-    @FXML
-    private Button ipTrackerBtn;
-
-    @FXML
-    private Button backBtn;
-
-    @FXML
-    private ImageView logo;
-
-    @FXML
-    private ImageView copiedImg;
+    private ImageView copiedImg, logo;
 
     public void searchIp(ActionEvent event) {
         GeoIp geoip = new GeoIp();
