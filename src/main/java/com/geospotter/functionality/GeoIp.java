@@ -10,6 +10,7 @@ import javafx.scene.control.TextArea;
 import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.regex.Matcher;
@@ -68,9 +69,9 @@ public class GeoIp {
             String ip = InetAddress.getByName(url.getHost()).getHostAddress();
             txtArea.setText(ip);
         } catch (UnknownHostException e) {
-            e.printStackTrace();
-        } catch (Exception e) {
-            e.printStackTrace();
+            txtArea.setText("Unknown host.");
+        } catch (MalformedURLException urlEx) {
+            txtArea.setText("Incorrectly formed URL.");
         }
     }
 }
