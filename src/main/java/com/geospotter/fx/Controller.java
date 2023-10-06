@@ -27,6 +27,12 @@ public class Controller {
     @FXML
     private ImageView copiedImg, logo;
 
+    /**
+     * Handles the action event for searching and displaying geolocation information for an IP address.
+     *
+     * @param event The ActionEvent associated with the search action.
+     */
+
     public void searchIp(ActionEvent event) {
         GeoIp geoip = new GeoIp();
 
@@ -37,16 +43,30 @@ public class Controller {
         }
     }
 
+    /**
+     * Handles the action event for retrieving and displaying the IP address.
+     *
+     * @param event The ActionEvent associated with the retrieval action.
+     */
+
     public void getIp(ActionEvent event) {
         GeoIp geoip = new GeoIp();
 
         geoip.getIp(txtField.getText(), txtArea);
     }
 
+    /**
+     * Clears the content of the TextArea and the input TextField.
+     */
+
     public void cleanArea() {
         txtArea.clear();
         txtField.clear();
     }
+
+    /**
+     * Copies the content of the TextArea to the system clipboard and triggers a notification.
+     */
 
     public void copyInfo() {
         Clipboard clipboard = Clipboard.getSystemClipboard();
@@ -60,6 +80,10 @@ public class Controller {
 
     }
 
+    /**
+     * Handles the action when the "Getter" button is clicked to navigate to the Getter scene.
+     */
+
     public void getterButton() {
         App app = new App();
 
@@ -69,6 +93,10 @@ public class Controller {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Handles the action when the "Tracker" button is clicked to navigate to the Tracker scene.
+     */
 
     public void trackerButton() {
         App app = new App();
@@ -80,6 +108,10 @@ public class Controller {
         }
     }
 
+    /**
+     * Handles the action when the "Back" button is clicked to navigate back to the Enter scene.
+     */
+
     public void backButton() {
         App app = new App();
 
@@ -89,6 +121,10 @@ public class Controller {
             throw new RuntimeException(e);
         }
     }
+
+    /**
+     * Handles the action when content is copied and displays a copied indicator for a brief duration.
+     */
 
     public void copied() {
         Delay delay = new Delay();
