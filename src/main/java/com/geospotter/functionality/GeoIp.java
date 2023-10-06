@@ -45,9 +45,10 @@ public class GeoIp {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (GeoIp2Exception geoip) {
-            txtArea.setText("ERROR: IP Adress not found.");
+            txtArea.setText("IP Adress not found.");
+        } catch (RuntimeException re) {
+            txtArea.setText("An error has been ocurred. Try again later.");
         }
-
     }
 
     public boolean checkIp(String ip) {
